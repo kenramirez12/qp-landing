@@ -1,6 +1,8 @@
-/*
-  This boilerplate is based in ITCSS and SMACSS
-*/
+// Vendors
+// @import "vendors/bootstrap/bootstrap.scss";
+// @import "vendors/slick/slick.scss";
+// @import "vendors/slick/slick-theme.scss";
+// @import "vendors/fontawesome/all.min.scss";
 
 // Config
 @import "config/functions";
@@ -14,9 +16,7 @@
   // Escribe solo los estilos de layout (division en regiones del viewport)
 @import "layout/layout";
 
-// MODULOS (SMACSS) O COMPONENTES (ITCSS)
-  // Son los elementos de UI de tu interfaz, como botones, tablas, menus, etc.
-  // Crea los archivos adicionales que necesites (uno por componente)
+// MODULOS
 @import "components/buttons";
 @import "components/menus";
 
