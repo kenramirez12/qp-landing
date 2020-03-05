@@ -3,24 +3,79 @@ block config
 doctype html
 html(lang="es")
   head
-    title= pageTitle + " | My Website"
+    title Quiero Parkear | Gana dinero con tu cochera
     meta(charset="utf-8")
-    meta(name="viewport" content="initial-scale=1.0, width=device-width")
+    meta(name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width")
     meta(name="twitter:card" content="summary_large_image")
     meta(name="twitter:site" content=twitterAccount)
     meta(property="og:title" content=pageTitle)
     meta(property="og:description" content=pageDescription)
     meta(property="og:image" content=pageImage)
-    link(rel="stylesheet" href="assets/css/styles.css")
-    link(rel="shortcut icon" href="img/favicon.png")
+    link(rel="stylesheet" href="assets/css/styles.css?v=1.0.2")
+    link(rel="stylesheet" href="assets/css/aos.css")
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400&display=swap" rel="stylesheet">
+    //- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    link(rel="shortcut icon" href="assets/images/favicon.png")
     
   body
-    include ../includes/header
-    include ../includes/main-menu
-    block main
-    include ../includes/footer
+    #app
+      include ../includes/header
+      block main
+      include ../includes/footer
 
-    //- script(src="assets/js/vendors/jquery.min.js")
-    //- script(src="assets/js/vendors/bootstrap.min.js")
+    script(src="assets/js/vendors/jquery.min.js")
+    script(src="assets/js/vendors/bootstrap.min.js")
     //- script(src="assets/js/vendors/slick.min.js")
-    script(src="assets/js/main.js")
+
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js")
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    script(src="assets/js/aos.js")
+    script(src="assets/js/main.js?v=1.0.1")
+    script.
+      window.onload = AOS.init({ once: true })
+      
+      const loadClientsNumber = () => {
+        const clientsNumber = document.getElementById('clients-number')
+        let flag = 0;
+        setInterval(() => {
+          if(flag < 10) {
+            flag ++
+            clientsNumber.innerText = flag
+          }
+        }, 200)
+      }
+
+      let loadedClientsNumberFlag = false
+
+      const tryLoadClientsNumber = () => {
+        let windowScrollTop = $(window).scrollTop()
+        let windowHeight = $(window).height()
+        let clientsNumberPosition = $('#clients-number').offset().top
+        
+        return (clientsNumberPosition < (windowScrollTop + windowHeight))
+      }
+
+      $(document).ready(function() {
+        if(tryLoadClientsNumber() && !loadedClientsNumberFlag) {
+          loadedClientsNumberFlag = true
+          loadClientsNumber()
+        }
+      })
+
+      $(document).scroll(function() {
+        if(tryLoadClientsNumber() && !loadedClientsNumberFlag) {
+          loadedClientsNumberFlag = true
+          loadClientsNumber()
+        }
+      })
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });

@@ -1,5 +1,5 @@
 {
-  "name": "ed-boilerplate",
+  "name": "qp-landing",
   "version": "1.0.0",
   "description": "Simple scafolding for statics web projects",
   "main": "gulpfile.babel.js",
@@ -10,7 +10,7 @@
     "images": "gulp images",
     "sitemap": "gulp sitemap"
   },
-  "author": "Alvaro Felipe",
+  "author": "Ken Ramirez",
   "license": "GPL-2.0",
   "devDependencies": {
     "babel-core": "^6.26.3",

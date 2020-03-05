@@ -1,0 +1,38 @@
+.hero {
+  background-image: url('../images/hero_bg.jpg');
+  background-size: cover;
+  background-position: bottom;
+  // background-attachment: fixed;
+  
+  @include media-breakpoint-up('md') {
+    background-attachment: fixed;
+  }
+
+  &__title {
+    @extend .font-weight-bold;
+    @extend .text-white;
+    font-size: 2.1rem;
+    
+    @include media-breakpoint-up('md') {
+      font-size: 3.5rem;
+    }
+  }
+  
+  &__copy {
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    
+    @include media-breakpoint-up('md') {
+      padding-top: 14rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  &__p {
+    width: 100%;
+    max-width: 30rem;
+    margin: auto;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+}

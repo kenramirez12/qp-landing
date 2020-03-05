@@ -1,8 +1,8 @@
 // Vendors
-// @import "vendors/bootstrap/bootstrap.scss";
+@import "vendors/bootstrap/bootstrap.scss";
 // @import "vendors/slick/slick.scss";
 // @import "vendors/slick/slick-theme.scss";
-// @import "vendors/fontawesome/all.min.scss";
+@import "vendors/fontawesome/all.min.scss";
 
 // Config
 @import "config/functions";
@@ -19,6 +19,9 @@
 // MODULOS
 @import "components/buttons";
 @import "components/menus";
+@import "components/hero";
+@import "components/sections";
+@import "components/steps";
 
 // Theme (colors and fonts)
 @import "theme/typography";

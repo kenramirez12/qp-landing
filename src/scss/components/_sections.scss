@@ -1,0 +1,20 @@
+.section-title {
+  @extend .h1;
+  color: $secondary;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+
+  &::after {
+    display: block;
+    content: attr(data-letter);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15rem;
+    line-height: 0.4em;
+    opacity: 0.3;
+  }
+}
